@@ -10,12 +10,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
+import type { Service } from "@/data/services";
 import { useCart } from "@/lib/CartContext";
+import { cn } from "@/lib/utils";
 import { Clock, ShoppingCart, Star } from "lucide-react";
 import Link from "next/link";
-import { useState, useMemo } from "react";
-import type { Service } from "@/data/services";
+import { useMemo, useState } from "react";
 
 interface ServiceCardProps {
   service: Service;
@@ -26,10 +26,7 @@ function parsePrice(priceStr: string): number {
   return Number.parseInt(priceStr.replace(/\D/g, ""), 10) || 0;
 }
 
-export function ServiceCard({
-  service,
-  className,
-}: ServiceCardProps) {
+export function ServiceCard({ service, className }: ServiceCardProps) {
   const { addToCart, items } = useCart();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -77,10 +74,7 @@ export function ServiceCard({
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         <div className="absolute bottom-4 left-4 right-4">
-          <Badge
-            variant="secondary"
-            className="bg-white/90 text-foreground backdrop-blur-sm"
-          >
+          <Badge variant="secondary" className="bg-white/90 text-foreground backdrop-blur-sm">
             {service.category}
           </Badge>
         </div>
@@ -102,10 +96,7 @@ export function ServiceCard({
         {/* Features List */}
         <ul className="space-y-1.5">
           {service.features.slice(0, 3).map((feature, index) => (
-            <li
-              key={index}
-              className="flex items-start gap-2 text-sm text-muted-foreground"
-            >
+            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
               <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
               <span className="line-clamp-1">{feature}</span>
             </li>
@@ -124,9 +115,7 @@ export function ServiceCard({
           <div>
             <p className="text-2xl font-bold text-heading">{service.price}</p>
             {service.priceNote && (
-              <p className="text-xs text-muted-foreground">
-                {service.priceNote}
-              </p>
+              <p className="text-xs text-muted-foreground">{service.priceNote}</p>
             )}
           </div>
           <div className="flex gap-2">

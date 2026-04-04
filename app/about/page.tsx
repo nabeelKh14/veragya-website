@@ -357,6 +357,18 @@ const AboutPage = () => {
                   brands, and artists express their vision through impactful creative solutions.
                 </p>
               </header>
+
+              {/* UI Component Image */}
+              <figure className="mb-12 overflow-hidden rounded-2xl">
+                <img
+                  src="/images/change_image_0.png"
+                  alt="Veragya creative design showcase"
+                  className="w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+
               <div ref={highlightsRef} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {highlights.map((item) => (
                   <div

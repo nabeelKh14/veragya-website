@@ -1,7 +1,6 @@
 import ContactSection from "@/components/landing/ContactSection";
 import HeroSection from "@/components/landing/HeroSection";
 import ProcessSection from "@/components/landing/ProcessSection";
-import TestimonialSection from "@/components/landing/TestimonialSection";
 import { generatePageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 
@@ -11,9 +10,8 @@ export default function Home() {
   return (
     <main id="main-content">
       <HeroSection />
-      <div className="mx-auto max-w-7xl">
+      <div className="w-full">
         <ProcessSection />
-        <TestimonialSection />
         <ContactSection />
       </div>
     </main>

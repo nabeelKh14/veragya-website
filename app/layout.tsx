@@ -1,20 +1,14 @@
 import Footer from "@/components/custom/Footer";
 import Navbar from "@/components/custom/Navbar";
+import WhatsAppButton from "@/components/custom/WhatsAppButton";
 import { CartProvider } from "@/lib/CartContext";
 import "@/lib/GSAPAnimations";
 import { defaultMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
-import { Cormorant_Garamond } from "next/font/google";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { Outfit } from "next/font/google";
+import { Noto_Serif_Devanagari } from "next/font/google";
 import "./globals.css";
-
-const cormorantGaramond = Cormorant_Garamond({
-  variable: "--font-heading",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-});
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-body",
@@ -28,6 +22,12 @@ const outfit = Outfit({
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
+const notoSerifDevanagari = Noto_Serif_Devanagari({
+  variable: "--font-heading",
+  subsets: ["devanagari", "latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = defaultMetadata;
 
 export default function RootLayout({
@@ -37,12 +37,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${cormorantGaramond.variable} ${plusJakartaSans.variable} ${outfit.variable} antialiased`}>
+      <body
+        className={`${notoSerifDevanagari.variable} ${plusJakartaSans.variable} ${outfit.variable} antialiased`}
+      >
         <CartProvider>
           <div className="min-h-screen w-full">
             <Navbar />
             {children}
             <Footer />
+            <WhatsAppButton />
           </div>
         </CartProvider>
       </body>

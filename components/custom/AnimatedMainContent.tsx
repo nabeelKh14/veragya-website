@@ -114,15 +114,15 @@ export function AnimatedMainContent({ content }: AnimatedMainContentProps) {
             dangerouslySetInnerHTML={{
               __html: content.replace(
                 /<h([1-6])([^>]*)>(.*?)<\/h[1-6]>/gi,
-                (match, level, attrs, content) => {
-                  const id = content
+                (match, level, attrs, innerContent) => {
+                  const id = innerContent
                     .replace(/<[^>]*>/g, "") // Remove HTML tags
                     .toLowerCase()
                     .replace(/[^\w\s-]/g, "")
                     .replace(/\s+/g, "-")
                     .replace(/-+/g, "-")
                     .trim();
-                  return `<h${level}${attrs} id="${id}">${content}</h${level}>`;
+                  return `<h${level}${attrs} id="${id}">${innerContent}</h${level}>`;
                 }
               ),
             }}

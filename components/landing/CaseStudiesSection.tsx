@@ -6,10 +6,10 @@ import { SectionHeading } from "@/components/custom/SectionHeading";
 import { Button } from "@/components/ui/button";
 import type { CaseStudyType } from "@/data/caseStudies";
 import { caseStudies } from "@/data/caseStudies";
-import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import Link from "next/link";
 import { useRef } from "react";
 
 // Register ScrollTrigger plugin

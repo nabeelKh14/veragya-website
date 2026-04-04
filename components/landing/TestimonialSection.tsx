@@ -118,7 +118,7 @@ function Testimonial() {
     <>
       <section
         ref={sectionRef}
-        className="px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-12 lg:py-24"
+        className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24"
         aria-labelledby="testimonials-heading"
         role="region"
       >
@@ -158,7 +158,7 @@ function Testimonial() {
           <h3 id="stats-heading" className="sr-only">
             Impact metrics
           </h3>
-          <div className="mx-auto max-w-7xl">
+          <div className="mx-auto w-full">
             <div className="flex flex-col divide-y divide-gray-200 sm:divide-y-0 sm:flex-row sm:divide-x">
               <div
                 className="flex flex-1 flex-col items-start px-4 py-4 sm:items-center sm:px-6 sm:py-6 md:py-0"

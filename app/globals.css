@@ -1,11 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Outfit:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Outfit:wght@100..900&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --font-heading: 'Cormorant Garamond', serif;
+  /* Traditional Indian-inspired fonts */
+  --font-heading: 'Noto Serif Devanagari', serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
   --font-secondary: 'Outfit', sans-serif;
 
@@ -25,8 +26,8 @@
   --card-foreground: oklch(0.2103 0.0059 285.8852);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.2103 0.0059 285.8852);
-  --primary: rgb(29, 39, 54);
-  --primary-hover: rgb(72, 82, 97);
+  --primary: rgb(83, 61, 50);
+  --primary-hover: rgb(100, 75, 62);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.9674 0.0013 286.3752);
   --secondary-foreground: oklch(0.2103 0.0059 285.8852);
@@ -222,7 +223,13 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23533D32' opacity='0.9'/%3E%3Ccircle cx='12' cy='12' r='4' fill='%23D4A574'/%3E%3Ccircle cx='12' cy='12' r='2' fill='%23FFF'/%3E%3C/svg%3E") 12 12, auto;
   }
+  
+  a, button, [role="button"] {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%23533D32' opacity='0.9'/%3E%3Ccircle cx='12' cy='12' r='6' fill='%23D4A574'/%3E%3Ccircle cx='12' cy='12' r='3' fill='%23FFF'/%3E%3C/svg%3E") 12 12, pointer;
+  }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -231,6 +238,35 @@
 body {
   letter-spacing: -0.01em;
   font-family: var(--font-body);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #533D32;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6B4F3D;
+}
+
+/* Selection styling */
+::selection {
+  background-color: #533D32;
+  color: white;
+}
+
+::-moz-selection {
+  background-color: #533D32;
+  color: white;
 }
 
 @layer components {

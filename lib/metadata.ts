@@ -265,7 +265,7 @@ export const pageMetadata = {
 
 export function generatePageMetadata(
   page: keyof typeof pageMetadata,
-  customMetadata?: Partial<Metadata>,
+  customMetadata?: Partial<Metadata>
 ): Metadata {
   const baseMetadata = pageMetadata[page];
 
@@ -293,7 +293,7 @@ export function generateBlogPostMetadata(
   description: string,
   publishedTime: string,
   slug: string,
-  image?: string,
+  image?: string
 ): Metadata {
   const blogUrl = `https://veragya.com/blog/${slug}`;
   const ogImage = image || siteConfig.ogImage;
@@ -301,12 +301,7 @@ export function generateBlogPostMetadata(
   return {
     title: `${title} — Veragya Blog`,
     description,
-    keywords: [
-      ...siteConfig.keywords,
-      "fashion blog",
-      "CLO 3D article",
-      "garment design insights",
-    ],
+    keywords: [...siteConfig.keywords, "fashion blog", "CLO 3D article", "garment design insights"],
     openGraph: {
       ...siteConfig.openGraph,
       title: `${title} — Veragya Blog`,
@@ -341,7 +336,7 @@ export function generateBlogPostStructuredData(
   description: string,
   publishedTime: string,
   slug: string,
-  author?: string,
+  author?: string
 ) {
   return {
     "@context": "https://schema.org",

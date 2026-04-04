@@ -58,12 +58,12 @@ export default function PortfolioPage() {
                 decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              
+
               <div className="absolute bottom-0 left-0 right-0 translate-y-4 p-5 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 sm:p-6 md:p-8">
                 <span className="mb-3 inline-block rounded-full bg-white/20 border border-white/30 px-3 py-1.5 text-xs font-semibold tracking-wide text-white uppercase shadow-sm backdrop-blur-md">
                   {item.category}
                 </span>
-                <h3 
+                <h3
                   className="text-2xl font-bold text-white drop-shadow-md sm:text-3xl"
                   style={{ fontFamily: "var(--font-heading)", fontStyle: "italic" }}
                 >
