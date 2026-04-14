@@ -1,5 +1,6 @@
 "use client";
 
+import WhatsAppButton from "@/components/custom/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { type Service, services } from "@/data/services";
 import { ArrowRight, Check, Clock } from "lucide-react";
@@ -79,14 +80,6 @@ export default function ServiceDetailPage() {
 
           {/* Right Column - Content */}
           <div className="flex flex-col justify-center">
-            {/* Price */}
-            <div className="mb-6">
-              <p className="text-4xl font-bold text-heading">{service.price}</p>
-              {service.priceNote && (
-                <p className="text-sm text-muted-foreground">{service.priceNote}</p>
-              )}
-            </div>
-
             {/* Features */}
             <div>
               <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground mb-4">
@@ -105,7 +98,7 @@ export default function ServiceDetailPage() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="relative flex flex-wrap gap-4 mt-10">
               <a
                 href="/#contact"
                 className="group inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold text-foreground transition-all hover:bg-muted"
@@ -113,6 +106,7 @@ export default function ServiceDetailPage() {
                 Start Your Project
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
+              <WhatsAppButton variant="inline" />
             </div>
           </div>
         </div>

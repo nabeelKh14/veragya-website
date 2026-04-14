@@ -17,7 +17,7 @@ const heroSlides = [
       "Our services help reduce the wastage of sampling and the rising costs for brands and individuals alike, creating a more eco-conscious fashion future.",
     cta: "Click here to know more",
     ctaHref: "/services",
-    image: "/images/change_image_3.png",
+    image: "/images/hero/hero-1.jpg",
     accent: "from-amber-500 to-yellow-300",
   },
   {
@@ -26,7 +26,7 @@ const heroSlides = [
       "From concept to creation, we blend traditional craftsmanship with cutting-edge technology to deliver fashion solutions that resonate with your vision.",
     cta: "Click here to know more",
     ctaHref: "/#contact",
-    image: "/images/change_image_1.png",
+    image: "/images/hero/hero-2.webp",
     accent: "from-emerald-500 to-teal-300",
   },
   {
@@ -35,8 +35,35 @@ const heroSlides = [
       "Experience the perfect harmony of creativity and efficiency. Our expert team transforms your ideas into stunning, production-ready designs.",
     cta: "Click here to know more",
     ctaHref: "/services",
-    image: "/images/change_image_4.png",
+    image: "/images/hero/hero-3.jpg",
     accent: "from-purple-500 to-fuchsia-400",
+  },
+  {
+    title: "Transform Your Fashion Vision Into Reality",
+    subtitle:
+      "Professional design services that bridge the gap between creative concepts and market-ready products.",
+    cta: "Click here to know more",
+    ctaHref: "/portfolio",
+    image: "/images/hero/hero-4.webp",
+    accent: "from-blue-500 to-cyan-300",
+  },
+  {
+    title: "Expert Pattern Making & 3D Design",
+    subtitle:
+      "Industry-leading expertise in garment construction, digital fitting, and production-ready technical specifications.",
+    cta: "Click here to know more",
+    ctaHref: "/services/clo-3d-design-rendering",
+    image: "/images/hero/hero-5.jpg",
+    accent: "from-rose-500 to-pink-300",
+  },
+  {
+    title: "End-to-End Fashion Solutions",
+    subtitle:
+      "From initial sketches to final production, we handle every step of your fashion project with precision and care.",
+    cta: "Click here to know more",
+    ctaHref: "/#contact",
+    image: "/images/hero/hero-6.png",
+    accent: "from-orange-500 to-amber-300",
   },
 ];
 

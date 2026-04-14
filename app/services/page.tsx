@@ -1,5 +1,6 @@
 "use client";
 
+import WhatsAppButton from "@/components/custom/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ArrowRight, Box, Check, Layers, Lightbulb, Package, Palette, Shirt } from "lucide-react";
@@ -314,7 +315,7 @@ export default function ServicesPage() {
             </div>
 
             {/* CTA */}
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="relative flex flex-wrap gap-4 mt-8">
               <a
                 href="/#contact"
                 className="group inline-flex items-center gap-2 rounded-full bg-neutral-900 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-neutral-800 hover:scale-105"
@@ -322,12 +323,7 @@ export default function ServicesPage() {
                 Start Your Project
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
-              <a
-                href="/portfolio"
-                className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold text-foreground transition-all hover:bg-muted"
-              >
-                View Our Work
-              </a>
+              <WhatsAppButton variant="inline" />
             </div>
           </div>
         </div>
