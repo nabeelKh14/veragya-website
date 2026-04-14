@@ -1,7 +1,6 @@
 import Footer from "@/components/custom/Footer";
 import Navbar from "@/components/custom/Navbar";
 import WhatsAppButton from "@/components/custom/WhatsAppButton";
-import { CartProvider } from "@/lib/CartContext";
 import "@/lib/GSAPAnimations";
 import { defaultMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
@@ -40,14 +39,12 @@ export default function RootLayout({
       <body
         className={`${notoSerifDevanagari.variable} ${plusJakartaSans.variable} ${outfit.variable} antialiased`}
       >
-        <CartProvider>
-          <div className="min-h-screen w-full">
-            <Navbar />
-            {children}
-            <Footer />
-            <WhatsAppButton />
-          </div>
-        </CartProvider>
+        <div className="min-h-screen w-full">
+          <Navbar />
+          {children}
+          <Footer />
+          <WhatsAppButton />
+        </div>
       </body>
     </html>
   );

@@ -48,7 +48,7 @@ export const services: Service[] = [
     category: "Development",
     price: "₹10,000",
     priceNote: "per project",
-    image: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&q=80",
+    image: "/images/services/concept-research.jpg",
     features: [
       "Mood boards & references",
       "Fabric & trim research",
@@ -66,7 +66,7 @@ export const services: Service[] = [
     category: "Development",
     price: "₹12,000",
     priceNote: "per style",
-    image: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600&q=80",
+    image: "/images/services/2d-pattern-development.jpeg",
     features: [
       "Graded 2D patterns",
       "DXF/AI production files",
@@ -84,7 +84,7 @@ export const services: Service[] = [
     category: "3D Design",
     price: "₹18,000",
     priceNote: "per garment",
-    image: "https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?w=600&q=80",
+    image: "/images/services/clo-3d-design-rendering.jpg",
     features: [
       "Photorealistic 3D renders",
       "Virtual fitting sessions",
@@ -102,7 +102,7 @@ export const services: Service[] = [
     category: "Development",
     price: "₹15,000",
     priceNote: "per style",
-    image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80",
+    image: "/images/services/production-handoff.jpg",
     features: [
       "Illustrator tech packs",
       "Manufacturing-ready files",
@@ -120,7 +120,7 @@ export const services: Service[] = [
     category: "Styling",
     price: "₹15,000",
     priceNote: "per shoot",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+    image: "/images/services/styling.png",
     features: [
       "Editorial styling",
       "Lookbook curation",
@@ -138,7 +138,7 @@ export const services: Service[] = [
     category: "Branding",
     price: "₹35,000",
     priceNote: "per project",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80",
+    image: "/images/services/merchandising-branding.jpg",
     features: [
       "Brand identity design",
       "Visual merchandising",
@@ -156,7 +156,7 @@ export const services: Service[] = [
     category: "Animation",
     price: "₹25,000",
     priceNote: "per video",
-    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80",
+    image: "/images/services/animation.png",
     features: [
       "Walk cycle animations",
       "Fabric movement simulation",
@@ -176,7 +176,7 @@ export const services: Service[] = [
     category: "Styling",
     price: "₹15,000",
     priceNote: "per shoot",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+    image: "/images/services/styling.png",
     features: [
       "Concept development",
       "Wardrobe curation",
@@ -194,7 +194,7 @@ export const services: Service[] = [
     category: "Styling",
     price: "₹25,000",
     priceNote: "per lookbook",
-    image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80",
+    image: "/images/services/production-handoff.jpg",
     features: [
       "Collection analysis",
       "Outfit coordination",
@@ -212,7 +212,7 @@ export const services: Service[] = [
     category: "Styling",
     price: "₹45,000",
     priceNote: "per show",
-    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80",
+    image: "/images/services/animation.png",
     features: ["Model fittings", "Backstage coordination", "Look finalization", "Show running"],
     deliveryTime: "Event day",
   },
@@ -238,7 +238,7 @@ export const services: Service[] = [
     category: "Merchandising",
     price: "₹45,000",
     priceNote: "starting",
-    image: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&q=80",
+    image: "/images/services/concept-research.jpg",
     features: [
       "Logo design",
       "Color palette & typography",
@@ -256,7 +256,7 @@ export const services: Service[] = [
     category: "Merchandising",
     price: "₹35,000",
     priceNote: "per project",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80",
+    image: "/images/services/merchandising-branding.jpg",
     features: ["Space planning", "Display design", "Window displays", "Implementation guide"],
     deliveryTime: "7-10 days",
   },
@@ -281,7 +281,7 @@ export const services: Service[] = [
     category: "Merchandising",
     price: "₹18,000",
     priceNote: "per design",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+    image: "/images/services/styling.png",
     features: ["Hang tag design", "Garment bag design", "Box packaging", "Print-ready files"],
     deliveryTime: "5-7 days",
   },
@@ -295,7 +295,7 @@ export const services: Service[] = [
     category: "3D Design",
     price: "₹8,500",
     priceNote: "per garment",
-    image: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&q=80",
+    image: "/images/services/concept-research.jpg",
     features: [
       "Photorealistic rendering",
       "Multiple angle views",
@@ -313,7 +313,7 @@ export const services: Service[] = [
     category: "3D Design",
     price: "₹12,000",
     priceNote: "per style",
-    image: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600&q=80",
+    image: "/images/services/2d-pattern-development.jpeg",
     features: [
       "Graded patterns (XS-3XL)",
       "Seam allowances included",
@@ -331,7 +331,7 @@ export const services: Service[] = [
     category: "Animation",
     price: "₹25,000",
     priceNote: "per video",
-    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80",
+    image: "/images/services/animation.png",
     features: [
       "Walk cycle animations",
       "Fabric movement simulation",
@@ -348,7 +348,7 @@ export const services: Service[] = [
     category: "3D Design",
     price: "₹6,500",
     priceNote: "per style",
-    image: "https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?w=600&q=80",
+    image: "/images/services/clo-3d-design-rendering.jpg",
     features: [
       "Complete BOM",
       "Construction details",
@@ -365,7 +365,7 @@ export const services: Service[] = [
     category: "Digital Art",
     price: "₹4,500",
     priceNote: "per illustration",
-    image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80",
+    image: "/images/services/production-handoff.jpg",
     features: [
       "Multiple art styles",
       "High-resolution output",
@@ -383,7 +383,7 @@ export const services: Service[] = [
     category: "Digital Art",
     price: "₹5,500",
     priceNote: "per pattern",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+    image: "/images/services/styling.png",
     features: [
       "Seamless repeat patterns",
       "Colorway variations",
@@ -417,7 +417,7 @@ export const services: Service[] = [
     category: "Marketing",
     price: "₹8,000",
     priceNote: "per 20 products",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80",
+    image: "/images/services/merchandising-branding.jpg",
     features: [
       "SEO-optimized descriptions",
       "Image optimization",
@@ -434,7 +434,7 @@ export const services: Service[] = [
     category: "Development",
     price: "₹85,000",
     priceNote: "starting",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
+    image: "/images/services/marketing.png",
     features: [
       "Responsive design",
       "E-commerce integration",
@@ -452,7 +452,7 @@ export const services: Service[] = [
     category: "Video",
     price: "₹15,000",
     priceNote: "per video",
-    image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&q=80",
+    image: "/images/services/video-editing.jpg",
     features: ["Fashion film editing", "Social media clips", "Color grading", "Motion graphics"],
     deliveryTime: "5-7 days",
   },
@@ -464,7 +464,7 @@ export const services: Service[] = [
     category: "Events",
     price: "₹3,000",
     priceNote: "per design",
-    image: "https://images.unsplash.com/photo-1607861716497-e65ab29fc7ac?w=600&q=80",
+    image: "/images/services/e-invite.jpg",
     features: [
       "Custom invitation design",
       "Animated versions",
@@ -481,7 +481,7 @@ export const services: Service[] = [
     category: "Digital Art",
     price: "₹6,000",
     priceNote: "per illustration",
-    image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&q=80",
+    image: "/images/services/procreate.jpg",
     features: [
       "Fashion illustrations",
       "Concept sketches",
@@ -498,7 +498,7 @@ export const services: Service[] = [
     category: "Training",
     price: "₹8,000",
     priceNote: "per session",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80",
+    image: "/images/services/learning-software.webp",
     features: ["Live training sessions", "Video tutorials", "Course materials", "Certification"],
     deliveryTime: "1-2 days",
   },
@@ -510,7 +510,7 @@ export const services: Service[] = [
     category: "Marketing",
     price: "₹25,000",
     priceNote: "per month",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
+    image: "/images/services/marketing.png",
     features: [
       "Social media strategy",
       "Content calendar",

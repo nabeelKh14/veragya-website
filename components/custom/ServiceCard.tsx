@@ -11,9 +11,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import type { Service } from "@/data/services";
-import { useCart } from "@/lib/CartContext";
 import { cn } from "@/lib/utils";
-import { Clock, ShoppingCart, Star } from "lucide-react";
+import { Clock, Star } from "lucide-react";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
@@ -22,31 +21,7 @@ interface ServiceCardProps {
   className?: string;
 }
 
-function parsePrice(priceStr: string): number {
-  return Number.parseInt(priceStr.replace(/\D/g, ""), 10) || 0;
-}
-
 export function ServiceCard({ service, className }: ServiceCardProps) {
-  const { addToCart, items } = useCart();
-  const [isLoading, setIsLoading] = useState(false);
-
-  const numericPrice = useMemo(() => parsePrice(service.price), [service.price]);
-  const isInCart = useMemo(() => items.some((item) => item.id === service.id), [items, service.id]);
-
-  const handleAddToCart = async () => {
-    setIsLoading(true);
-    try {
-      addToCart({
-        id: service.id,
-        title: service.title,
-        price: numericPrice,
-        image: service.image,
-      });
-    } finally {
-      setTimeout(() => setIsLoading(false), 300);
-    }
-  };
-
   return (
     <Card
       className={cn(
@@ -119,27 +94,6 @@ export function ServiceCard({ service, className }: ServiceCardProps) {
             )}
           </div>
           <div className="flex gap-2">
-            <Button
-              variant="outline"
-              size="sm"
-              className="gap-2"
-              onClick={handleAddToCart}
-              disabled={isLoading}
-            >
-              {isLoading ? (
-                <span className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
-              ) : isInCart ? (
-                <>
-                  <ShoppingCart className="h-4 w-4 fill-current" />
-                  Added
-                </>
-              ) : (
-                <>
-                  <ShoppingCart className="h-4 w-4" />
-                  Add to Cart
-                </>
-              )}
-            </Button>
             <Button asChild size="sm" variant="secondary" className="gap-2">
               <Link href={`/services/${service.id}`}>View Details</Link>
             </Button>

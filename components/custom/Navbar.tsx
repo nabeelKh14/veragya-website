@@ -1,7 +1,6 @@
 "use client";
 
-import { useCart } from "@/lib/CartContext";
-import { Search, ShoppingCart } from "lucide-react";
+import { Search } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -50,7 +49,6 @@ function Navbar() {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const pathname = usePathname();
   const router = useRouter();
-  const { itemCount } = useCart();
 
   const closeMenu = useCallback(() => {
     setIsMenuOpen(false);
@@ -160,20 +158,6 @@ function Navbar() {
               >
                 <Search className="h-4.5 w-4.5 text-white" />
               </button>
-
-              {/* Cart */}
-              <Link
-                href="/cart"
-                className="relative inline-flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-white/10 focus:outline-none"
-                aria-label={`Shopping cart with ${itemCount} items`}
-              >
-                <ShoppingCart className="h-4.5 w-4.5 text-white" />
-                {itemCount > 0 && (
-                  <span className="absolute -right-0.5 -top-0.5 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-red-500 px-1 text-[10px] font-semibold text-white">
-                    {itemCount > 99 ? "99+" : itemCount}
-                  </span>
-                )}
-              </Link>
 
               {/* Hamburger (mobile only) */}
               <button

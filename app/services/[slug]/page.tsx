@@ -2,21 +2,14 @@
 
 import { Button } from "@/components/ui/button";
 import { type Service, services } from "@/data/services";
-import { useCart } from "@/lib/CartContext";
-import { ArrowRight, Check, Clock, ShoppingCart } from "lucide-react";
+import { ArrowRight, Check, Clock } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useState } from "react";
 
-function parsePrice(priceStr: string): number {
-  return Number.parseInt(priceStr.replace(/\D/g, ""), 10) || 0;
-}
-
 export default function ServiceDetailPage() {
   const params = useParams();
   const slug = params.slug as string;
-  const { addToCart, items } = useCart();
-  const [isLoading, setIsLoading] = useState(false);
 
   const service = services.find((s) => s.id === slug);
 
@@ -40,23 +33,6 @@ export default function ServiceDetailPage() {
       </main>
     );
   }
-
-  const numericPrice = parsePrice(service.price);
-  const isInCart = items.some((item) => item.id === service.id);
-
-  const handleAddToCart = async () => {
-    setIsLoading(true);
-    try {
-      addToCart({
-        id: service.id,
-        title: service.title,
-        price: numericPrice,
-        image: service.image,
-      });
-    } finally {
-      setTimeout(() => setIsLoading(false), 300);
-    }
-  };
 
   return (
     <main id="main-content" className="min-h-screen bg-background">
@@ -130,25 +106,6 @@ export default function ServiceDetailPage() {
 
             {/* CTA Buttons */}
             <div className="mt-10 flex flex-wrap gap-4">
-              <Button
-                onClick={handleAddToCart}
-                disabled={isLoading}
-                className="gap-2 bg-neutral-900 hover:bg-neutral-800"
-              >
-                {isLoading ? (
-                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
-                ) : isInCart ? (
-                  <>
-                    <ShoppingCart className="h-4 w-4 fill-current" />
-                    Added to Cart
-                  </>
-                ) : (
-                  <>
-                    <ShoppingCart className="h-4 w-4" />
-                    Add to Cart
-                  </>
-                )}
-              </Button>
               <a
                 href="/#contact"
                 className="group inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold text-foreground transition-all hover:bg-muted"

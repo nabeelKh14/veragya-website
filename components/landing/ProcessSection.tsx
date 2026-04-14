@@ -1,3 +1,5 @@
+import { services } from "@/data/services";
+
 interface processType {
   title: string;
   tagline: string;
@@ -16,7 +18,7 @@ const ProcessSection: React.FC = () => {
       tagline: "Understanding Your Vision",
       description:
         "We start by studying your brand identity, target market, and design vision. Through mood boards, reference analysis, and detailed briefs, we define the aesthetic direction, fabric choices, and construction approach for every garment.",
-      bg_image: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&q=80",
+      bg_image: services.find((s) => s.id === "concept-research")?.image + "?v=2" || "",
       link: "/services/concept-research",
       deliverables: [
         { item: "Mood boards & references" },
@@ -29,7 +31,7 @@ const ProcessSection: React.FC = () => {
       tagline: "Precision Engineering on Flat",
       description:
         "Our pattern makers create precise 2D patterns with full grading, seam allowances, notches, and construction marks. Every pattern is built to production standards — compatible with Gerber, Lectra, and Optitex systems.",
-      bg_image: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=800&q=80",
+      bg_image: services.find((s) => s.id === "2d-pattern-development")?.image + "?v=2" || "",
       link: "/services/2d-pattern-development",
       deliverables: [
         { item: "Graded 2D patterns" },
@@ -42,7 +44,7 @@ const ProcessSection: React.FC = () => {
       tagline: "Bringing Fabrics to Life",
       description:
         "Using CLO 3D, we simulate garments with accurate fabric physics, drape, and fit on customizable avatars. You get photorealistic renders from every angle — perfect for buyer presentations, e-commerce, and social media.",
-      bg_image: "https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?w=800&q=80",
+      bg_image: services.find((s) => s.id === "clo-3d-design-rendering")?.image + "?v=2" || "",
       link: "/services/clo-3d-design-rendering",
       deliverables: [
         { item: "Photorealistic 3D renders" },
@@ -55,7 +57,7 @@ const ProcessSection: React.FC = () => {
       tagline: "Factory-Ready Delivery",
       description:
         "We package everything your manufacturer needs: Illustrator tech packs with BOM, construction details, and trim specifications; CLO 3D files for reference; graded patterns in production formats.",
-      bg_image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&q=80",
+      bg_image: services.find((s) => s.id === "production-handoff")?.image + "?v=2" || "",
       link: "/services/production-handoff",
       deliverables: [
         { item: "Illustrator tech packs" },
@@ -68,7 +70,7 @@ const ProcessSection: React.FC = () => {
       tagline: "Elevating Your Fashion Vision",
       description:
         "Our expert stylists curate looks that capture your brand essence. From editorial shoots to runway presentations, we ensure every detail aligns with your creative direction and resonates with your target audience.",
-      bg_image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+      bg_image: services.find((s) => s.id === "styling")?.image + "?v=2" || "",
       link: "/services/styling",
       deliverables: [
         { item: "Editorial styling" },
@@ -81,7 +83,7 @@ const ProcessSection: React.FC = () => {
       tagline: "Building Your Brand Identity",
       description:
         "We create cohesive brand experiences that tell your story. From visual merchandising strategies to complete brand identity systems, we help you establish a distinctive presence in the fashion marketplace.",
-      bg_image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80",
+      bg_image: services.find((s) => s.id === "merchandising-branding")?.image + "?v=2" || "",
       link: "/services/merchandising-branding",
       deliverables: [
         { item: "Brand identity design" },
@@ -94,7 +96,7 @@ const ProcessSection: React.FC = () => {
       tagline: "Bringing Designs to Life",
       description:
         "Dynamic animations showcasing garment movement, fit, and fabric behavior. Perfect for investor pitches, social media content, and marketing materials.",
-      bg_image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&q=80",
+      bg_image: services.find((s) => s.id === "animation")?.image + "?v=2" || "",
       link: "/services/animation",
       deliverables: [
         { item: "Walk cycle animations" },
@@ -107,7 +109,7 @@ const ProcessSection: React.FC = () => {
       tagline: "Professional Video Production",
       description:
         "Expert video editing for fashion campaigns, lookbooks, and social media content. We create compelling visual stories that showcase your collection.",
-      bg_image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80",
+      bg_image: services.find((s) => s.id === "video-editing")?.image + "?v=2" || "",
       link: "/services/video-editing",
       deliverables: [
         { item: "Fashion film editing" },
@@ -120,7 +122,7 @@ const ProcessSection: React.FC = () => {
       tagline: "Digital Invitations & Cards",
       description:
         "Beautiful digital invitations for fashion events, launches, and celebrations. Custom-designed e-invites that reflect your brand aesthetic.",
-      bg_image: "https://images.unsplash.com/photo-1607861716497-e65ab29fc7ac?w=800&q=80",
+      bg_image: services.find((s) => s.id === "e-invite")?.image + "?v=2" || "",
       link: "/services/e-invite",
       deliverables: [
         { item: "Custom invitation design" },
@@ -133,7 +135,7 @@ const ProcessSection: React.FC = () => {
       tagline: "Digital Fashion Illustration",
       description:
         "Custom digital fashion illustrations created in Procreate. From concept sketches to finished artwork for branding and presentations.",
-      bg_image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&q=80",
+      bg_image: services.find((s) => s.id === "procreate")?.image + "?v=2" || "",
       link: "/services/procreate",
       deliverables: [
         { item: "Fashion illustrations" },
@@ -146,7 +148,7 @@ const ProcessSection: React.FC = () => {
       tagline: "Software Training & Tutorials",
       description:
         "Professional training sessions for CLO 3D, Adobe Illustrator, and other fashion design software. Learn industry-standard tools from experts.",
-      bg_image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80",
+      bg_image: services.find((s) => s.id === "learning-software")?.image + "?v=2" || "",
       link: "/services/learning-software",
       deliverables: [
         { item: "Live training sessions" },
@@ -159,7 +161,7 @@ const ProcessSection: React.FC = () => {
       tagline: "Fashion Brand Marketing",
       description:
         "Strategic marketing solutions for fashion brands. From social media strategy to campaign creation, we help you reach your target audience effectively.",
-      bg_image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+      bg_image: services.find((s) => s.id === "marketing")?.image + "?v=2" || "",
       link: "/services/marketing",
       deliverables: [
         { item: "Social media strategy" },
