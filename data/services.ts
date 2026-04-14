@@ -39,6 +39,134 @@ export const serviceCategories: ServiceCategory[] = [
 ];
 
 export const services: Service[] = [
+  // Process Step Services (linked from homepage)
+  {
+    id: "concept-research",
+    title: "Concept & Research",
+    description:
+      "We start by studying your brand identity, target market, and design vision. Through mood boards, reference analysis, and detailed briefs, we define the aesthetic direction, fabric choices, and construction approach for every garment.",
+    category: "Development",
+    price: "₹10,000",
+    priceNote: "per project",
+    image: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&q=80",
+    features: [
+      "Mood boards & references",
+      "Fabric & trim research",
+      "Design direction brief",
+      "Brand identity analysis",
+    ],
+    deliveryTime: "3-5 days",
+    popular: true,
+  },
+  {
+    id: "2d-pattern-development",
+    title: "2D Pattern Development",
+    description:
+      "Our pattern makers create precise 2D patterns with full grading, seam allowances, notches, and construction marks. Every pattern is built to production standards — compatible with Gerber, Lectra, and Optitex systems.",
+    category: "Development",
+    price: "₹12,000",
+    priceNote: "per style",
+    image: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600&q=80",
+    features: [
+      "Graded 2D patterns",
+      "DXF/AI production files",
+      "Size spec sheets",
+      "Construction notches & marks",
+    ],
+    deliveryTime: "5-7 days",
+    popular: true,
+  },
+  {
+    id: "clo-3d-design-rendering",
+    title: "CLO 3D Design & Rendering",
+    description:
+      "Using CLO 3D, we simulate garments with accurate fabric physics, drape, and fit on customizable avatars. You get photorealistic renders from every angle — perfect for buyer presentations, e-commerce, and social media.",
+    category: "3D Design",
+    price: "₹18,000",
+    priceNote: "per garment",
+    image: "https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?w=600&q=80",
+    features: [
+      "Photorealistic 3D renders",
+      "Virtual fitting sessions",
+      "CLO 3D project files",
+      "360° garment views",
+    ],
+    deliveryTime: "5-7 days",
+    popular: true,
+  },
+  {
+    id: "production-handoff",
+    title: "Production Handoff",
+    description:
+      "We package everything your manufacturer needs: Illustrator tech packs with BOM, construction details, and trim specifications; CLO 3D files for reference; graded patterns in production formats.",
+    category: "Development",
+    price: "₹15,000",
+    priceNote: "per style",
+    image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80",
+    features: [
+      "Illustrator tech packs",
+      "Manufacturing-ready files",
+      "3D animation videos",
+      "Complete BOM documentation",
+    ],
+    deliveryTime: "4-6 days",
+    popular: true,
+  },
+  {
+    id: "styling",
+    title: "Styling",
+    description:
+      "Our expert stylists curate looks that capture your brand essence. From editorial shoots to runway presentations, we ensure every detail aligns with your creative direction and resonates with your target audience.",
+    category: "Styling",
+    price: "₹15,000",
+    priceNote: "per shoot",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+    features: [
+      "Editorial styling",
+      "Lookbook curation",
+      "Runway coordination",
+      "Wardrobe consultation",
+    ],
+    deliveryTime: "3-5 days",
+    popular: true,
+  },
+  {
+    id: "merchandising-branding",
+    title: "Merchandising / Branding",
+    description:
+      "We create cohesive brand experiences that tell your story. From visual merchandising strategies to complete brand identity systems, we help you establish a distinctive presence in the fashion marketplace.",
+    category: "Branding",
+    price: "₹35,000",
+    priceNote: "per project",
+    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80",
+    features: [
+      "Brand identity design",
+      "Visual merchandising",
+      "Marketing collateral",
+      "Brand guidelines",
+    ],
+    deliveryTime: "10-14 days",
+    popular: true,
+  },
+  {
+    id: "animation",
+    title: "Animation",
+    description:
+      "Dynamic animations showcasing garment movement, fit, and fabric behavior. Perfect for investor pitches, social media content, and marketing materials.",
+    category: "Animation",
+    price: "₹25,000",
+    priceNote: "per video",
+    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80",
+    features: [
+      "Walk cycle animations",
+      "Fabric movement simulation",
+      "Multiple camera angles",
+      "Social media optimized",
+    ],
+    deliveryTime: "7-10 days",
+    popular: true,
+  },
+
   // Styling Services
   {
     id: "styling-editorial",

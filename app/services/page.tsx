@@ -156,7 +156,7 @@ export default function ServicesPage() {
 
   return (
     <main id="main-content" className="min-h-screen bg-background">
-      {/* Hero Section */}
+      {/* Hero Section
       <section className="relative overflow-hidden bg-neutral-950 px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 bg-gradient-to-br from-neutral-800/20 via-transparent to-neutral-900/20" />
@@ -177,9 +177,10 @@ export default function ServicesPage() {
           </p>
         </div>
       </section>
+      */}
 
       {/* Process Cards Grid - Complete Workflow Overview */}
-      <section className="px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <section className="px-4 pt-32 pb-16 sm:px-6 sm:pt-40 sm:pb-24 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="text-center mb-12">
             <h2
@@ -245,37 +246,18 @@ export default function ServicesPage() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left Column - Image */}
-          <div className="relative">
-            <div className="aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl">
-              <img
-                src={currentStep.bg_image}
-                alt={currentStep.title}
-                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6">
-                <span className="inline-block rounded-full bg-white/20 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm">
-                  Step {processSteps.findIndex((s) => s.id === activeStep) + 1} of{" "}
-                  {processSteps.length}
-                </span>
-              </div>
-            </div>
-
-            {/* Tools Used */}
-            <div className="mt-6 rounded-xl border border-border bg-card p-6">
-              <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">
-                Tools & Software
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {currentStep.tools.map((tool) => (
-                  <span
-                    key={tool}
-                    className="rounded-full bg-muted px-4 py-2 text-sm font-medium text-foreground"
-                  >
-                    {tool}
-                  </span>
-                ))}
-              </div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl">
+            <img
+              src={currentStep.bg_image}
+              alt={currentStep.title}
+              className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6">
+              <span className="inline-block rounded-full bg-white/20 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm">
+                Step {processSteps.findIndex((s) => s.id === activeStep) + 1} of{" "}
+                {processSteps.length}
+              </span>
             </div>
           </div>
 

@@ -96,7 +96,7 @@ function ContactUs() {
             style={{
               backgroundImage: `url(https://pbs.twimg.com/media/GqMIQdAXgAA_C4K?format=jpg&name=4096x4096)`,
             }}
-            className="bg-background relative flex h-96 w-full flex-col items-center justify-center overflow-hidden bg-cover opacity-85 sm:h-[500px] lg:h-[600px]"
+            className="bg-background relative flex h-[600px] w-full flex-col items-center justify-center overflow-hidden bg-cover opacity-85 sm:h-[600px] lg:h-[700px]"
           >
             <InteractiveGridPattern
               className={cn(
@@ -104,117 +104,117 @@ function ContactUs() {
                 "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12"
               )}
             />
-          </div>
 
-          {/* Form completely overlapping the image */}
-          <div className="relative -mt-48 z-10 mx-auto max-w-md px-4 sm:px-6 lg:px-8">
-            <div
-              ref={formRef}
-              className="space-y-4 sm:space-y-5 bg-white rounded-xl shadow-xl p-6 sm:p-8"
-            >
-              <h3 id="contact-form-title" className="sr-only">
-                Contact us form
-              </h3>
-              <p id="contact-form-description" className="sr-only">
-                Use this form to contact Veragya. Tell us about your project scope, timeline, and
-                the types of services you need.
-              </p>
-              <form
-                className="space-y-4 sm:space-y-5"
-                aria-labelledby="contact-form-title"
-                aria-describedby="contact-form-description"
-                itemScope
-                itemType="https://schema.org/ContactPoint"
+            {/* Form completely inside the image - centered */}
+            <div className="relative z-10 mx-auto max-w-md px-4 sm:px-6 lg:px-8 w-full">
+              <div
+                ref={formRef}
+                className="space-y-4 sm:space-y-5 bg-white/95 backdrop-blur-sm rounded-xl shadow-xl p-6 sm:p-8"
               >
-                <div className="space-y-2">
-                  <label
-                    htmlFor="name"
-                    className="text-text-heading text-sm font-medium sm:text-base"
-                  >
-                    Name
-                  </label>
-                  <Input
-                    id="name"
-                    type="text"
-                    placeholder="Enter your name"
-                    className="focus:border-primary focus:ring-primary w-full border-gray-200 h-10 sm:h-11"
-                    name="name"
-                    autoComplete="name"
-                    required
-                    aria-required="true"
-                    itemProp="name"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label
-                    htmlFor="email"
-                    className="text-text-heading text-sm font-medium sm:text-base"
-                  >
-                    Email
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="Enter your email"
-                    className="focus:border-primary focus:ring-primary w-full border-gray-200 h-10 sm:h-11"
-                    name="email"
-                    autoComplete="email"
-                    inputMode="email"
-                    required
-                    aria-required="true"
-                    itemProp="email"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label
-                    htmlFor="contactNumber"
-                    className="text-text-heading text-sm font-medium sm:text-base"
-                  >
-                    Contact Number
-                  </label>
-                  <Input
-                    id="contactNumber"
-                    type="tel"
-                    placeholder="Enter your contact number"
-                    className="focus:border-primary focus:ring-primary w-full border-gray-200 h-10 sm:h-11"
-                    name="contactNumber"
-                    autoComplete="tel"
-                    inputMode="tel"
-                    aria-required="true"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label
-                    htmlFor="serviceRequired"
-                    className="text-text-heading text-sm font-medium sm:text-base"
-                  >
-                    Service Required
-                  </label>
-                  <Select name="serviceRequired" required>
-                    <SelectTrigger className="w-full border-gray-200 h-10 sm:h-11">
-                      <SelectValue placeholder="Select a service" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {services.map((service) => (
-                        <SelectItem key={service} value={service}>
-                          {service}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <Button
-                  type="submit"
-                  className="bg-primary hover:bg-primary/90 w-full py-3 sm:py-4 font-medium text-white text-sm sm:text-base"
-                  aria-label="Submit contact form"
+                <h3 id="contact-form-title" className="sr-only">
+                  Contact us form
+                </h3>
+                <p id="contact-form-description" className="sr-only">
+                  Use this form to contact Veragya. Tell us about your project scope, timeline, and
+                  the types of services you need.
+                </p>
+                <form
+                  className="space-y-4 sm:space-y-5"
+                  aria-labelledby="contact-form-title"
+                  aria-describedby="contact-form-description"
+                  itemScope
+                  itemType="https://schema.org/ContactPoint"
                 >
-                  Submit
-                </Button>
-              </form>
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="name"
+                      className="text-text-heading text-sm font-medium sm:text-base"
+                    >
+                      Name
+                    </label>
+                    <Input
+                      id="name"
+                      type="text"
+                      placeholder="Enter your name"
+                      className="focus:border-primary focus:ring-primary w-full border-gray-200 h-10 sm:h-11"
+                      name="name"
+                      autoComplete="name"
+                      required
+                      aria-required="true"
+                      itemProp="name"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="email"
+                      className="text-text-heading text-sm font-medium sm:text-base"
+                    >
+                      Email
+                    </label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="Enter your email"
+                      className="focus:border-primary focus:ring-primary w-full border-gray-200 h-10 sm:h-11"
+                      name="email"
+                      autoComplete="email"
+                      inputMode="email"
+                      required
+                      aria-required="true"
+                      itemProp="email"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="contactNumber"
+                      className="text-text-heading text-sm font-medium sm:text-base"
+                    >
+                      Contact Number
+                    </label>
+                    <Input
+                      id="contactNumber"
+                      type="tel"
+                      placeholder="Enter your contact number"
+                      className="focus:border-primary focus:ring-primary w-full border-gray-200 h-10 sm:h-11"
+                      name="contactNumber"
+                      autoComplete="tel"
+                      inputMode="tel"
+                      aria-required="true"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="serviceRequired"
+                      className="text-text-heading text-sm font-medium sm:text-base"
+                    >
+                      Service Required
+                    </label>
+                    <Select name="serviceRequired" required>
+                      <SelectTrigger className="w-full border-gray-200 h-10 sm:h-11">
+                        <SelectValue placeholder="Select a service" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {services.map((service) => (
+                          <SelectItem key={service} value={service}>
+                            {service}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <Button
+                    type="submit"
+                    className="bg-primary hover:bg-primary/90 w-full py-3 sm:py-4 font-medium text-white text-sm sm:text-base"
+                    aria-label="Submit contact form"
+                  >
+                    Submit
+                  </Button>
+                </form>
+              </div>
             </div>
           </div>
         </div>

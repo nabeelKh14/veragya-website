@@ -9,7 +9,7 @@ interface processType {
   }[];
 }
 
-const ProcessCards: React.FC = () => {
+const ProcessSection: React.FC = () => {
   const process: processType[] = [
     {
       title: "Concept & Research",
@@ -230,4 +230,4 @@ const ProcessCards: React.FC = () => {
   );
 };
 
-export default ProcessCards;
+export default ProcessSection;

@@ -66,12 +66,7 @@ function HeroBanner() {
                     loading={index === 0 ? "eager" : "lazy"}
                     style={{ objectPosition: "top center" }}
                   />
-                  {/* Gradient overlay for text readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
                 </div>
-
-                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent" />
 
                 {/* Content centered */}
                 <div className="relative z-10 flex h-full w-full items-center justify-center p-6 sm:p-10 md:p-16">
