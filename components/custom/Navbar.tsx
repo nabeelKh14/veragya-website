@@ -1,5 +1,4 @@
-"use client";
-
+import Image from "next/image";
 import { Search } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -10,36 +9,11 @@ const navLinks = [
   { name: "Services", href: "/services" },
   { name: "About Us", href: "/about" },
   { name: "Blog", href: "/blog" },
-  { name: "Contact Us", href: "/#contact" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 // Pantone 19-119 TCX (Potting Soil) - Dark brown/burgundy
 const NAVBAR_BG = "#533D32";
-
-function VeragyaLogo({ className = "h-12 w-auto" }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 200 60"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-label="Veragya"
-    >
-      <text
-        x="50%"
-        y="45"
-        textAnchor="middle"
-        fontFamily="var(--font-heading)"
-        fontStyle="italic"
-        fontSize="42"
-        fontWeight="600"
-        fill="currentColor"
-      >
-        Veragya
-      </text>
-    </svg>
-  );
-}
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -124,7 +98,16 @@ function Navbar() {
               className="shrink-0 text-white transition-opacity hover:opacity-70 focus:outline-none"
               aria-label="Veragya - Return to homepage"
             >
-              <VeragyaLogo className="h-10 w-auto" />
+              <div className="relative h-10 w-auto">
+                <Image
+                  src="/images/logo.png"
+                  alt="Veragya Logo"
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-contain"
+                />
+              </div>
             </Link>
 
             {/* Desktop nav links below logo */}
