@@ -514,9 +514,9 @@ body {
   .testimonial-card-bg {
     background: linear-gradient(
       180deg,
-      color-mix(in oklch, var(--color-card) 92%, var(--color-border) 8%) 0%,
-      color-mix(in oklch, var(--color-card) 88%, var(--color-muted) 12%) 60%,
-      color-mix(in oklch, var(--color-card) 85%, var(--color-muted) 15%) 100%
+      oklch(0.9674 0.0013 286.3752 / 0.92) 0%,
+      oklch(0.9674 0.0013 286.3752 / 0.88) 60%,
+      oklch(0.9674 0.0013 286.3752 / 0.85) 100%
     );
     box-shadow: var(--shadow-sm);
   }
@@ -668,18 +668,6 @@ code[data-line-numbers] > [data-line]::before {
 
 code {
   counter-reset: line;
-}
-
-code > [data-line]::before {
-counter-increment: line;
-content: counter(line);
-
-/* Other styling */
-display: inline-block;
-width: 1rem;
-margin-right: 2rem;
-text-align: right;
-color: gray;
 }
 
 code[data-line-numbers-max-digits="2"] > [data-line]::before {
