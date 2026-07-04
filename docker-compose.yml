@@ -1,0 +1,94 @@
+# docker-compose.yml - Full Stack Development Environment
+version: '3.8'
+
+services:
+  # Next.js Frontend Application
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: veragya-website
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      TWENTY_API_URL: http://backend:3000/api/contact
+    depends_on:
+      - backend
+    networks:
+      - veragya-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Twenty CRM Backend
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ../Dockerfile.crm
+    container_name: twenty-crm-backend
+    ports:
+      - "3001:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/twenty_crm
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - veragya-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: twenty-crm-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: twenty_crm
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - veragya-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Nginx Reverse Proxy (optional, for production-like setup)
+  nginx:
+    image: nginx:alpine
+    container_name: veragya-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - veragya-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+
+networks:
+  veragya-network:
+    driver: bridge

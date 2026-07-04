@@ -278,6 +278,192 @@ API_KEY=your_secure_token_here
 
 ---
 
+## 🔐 SECURITY HARDENING GUIDE
+
+### 9.1 Environment Variable Security
+```bash
+# Never commit .env files to version control
+echo ".env" >> .gitignore
+echo ".env.local" >> .gitignore
+echo ".env.prod" >> .gitignore
+
+# Use strong, random API keys
+openssl rand -base64 32 > api_key.txt
+```
+
+### 9.2 API Endpoint Security
+
+**Add rate limiting to API routes:**
+```typescript
+// app/api/contact/route.ts
+import { NextRequest, NextResponse } from 'next/server';
+
+const requestCounts = new Map();
+const RATE_LIMIT = 10; // requests per minute
+const WINDOW_MS = 60000; // 1 minute
+
+export async function POST(req: NextRequest) {
+  const ip = req.ip || 'unknown';
+  const now = Date.now();
+  
+  if (!requestCounts.has(ip)) {
+    requestCounts.set(ip, []);
+  }
+  
+  const timestamps = requestCounts.get(ip);
+  const recentRequests = timestamps.filter(t => now - t < WINDOW_MS);
+  
+  if (recentRequests.length >= RATE_LIMIT) {
+    return NextResponse.json({ error: 'Rate limit exceeded' }, { status: 429 });
+  }
+  
+  recentRequests.push(now);
+  requestCounts.set(ip, recentRequests);
+  
+  // Continue with form processing...
+}
+```
+
+### 9.3 Input Validation & Sanitization
+```typescript
+import DOMPurify from 'isomorphic-dompurify';
+import { z } from 'zod';
+
+// Define validation schema
+const ContactSchema = z.object({
+  name: z.string().min(2).max(100),
+  email: z.string().email(),
+  message: z.string().min(10).max(5000)
+});
+
+export async function POST(req: NextRequest) {
+  const body = await req.json();
+  
+  // Validate against schema
+  const validation = ContactSchema.safeParse(body);
+  if (!validation.success) {
+    return NextResponse.json({ error: 'Invalid input' }, { status: 400 });
+  }
+  
+  // Sanitize input
+  const sanitized = {
+    name: DOMPurify.sanitize(validation.data.name),
+    email: DOMPurify.sanitize(validation.data.email),
+    message: DOMPurify.sanitize(validation.data.message)
+  };
+  
+  // Continue processing...
+}
+```
+
+### 9.4 HTTPS/TLS Configuration
+```bash
+# Generate self-signed certificates (development)
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
+
+# For production, use Let's Encrypt
+sudo apt-get install certbot
+sudo certbot certonly --standalone -d your-domain.com
+```
+
+### 9.5 CORS Configuration
+```typescript
+// Enable CORS only for trusted domains
+const ALLOWED_ORIGINS = [
+  'https://veragya.com',
+  'https://www.veragya.com',
+  'https://veragya.vercel.app'
+];
+
+export async function POST(req: NextRequest) {
+  const origin = req.headers.get('origin');
+  
+  if (!ALLOWED_ORIGINS.includes(origin)) {
+    return NextResponse.json({ error: 'CORS error' }, { status: 403 });
+  }
+  
+  // Process request...
+}
+```
+
+### 9.6 Database Connection Security
+```env
+# Use strong passwords
+DATABASE_URL=postgresql://user:complex_password@host:5432/database
+
+# Enable SSL for database connections
+DATABASE_SSL=true
+DATABASE_SSL_REJECT_UNAUTHORIZED=false
+```
+
+### 9.7 API Authentication (Optional)
+```typescript
+// Use JWT tokens for API authentication
+import jwt from 'jsonwebtoken';
+
+const SECRET_KEY = process.env.JWT_SECRET;
+
+export async function POST(req: NextRequest) {
+  const authHeader = req.headers.get('authorization');
+  
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+  
+  try {
+    const token = authHeader.substring(7);
+    jwt.verify(token, SECRET_KEY);
+    // Token valid, continue processing
+  } catch (err) {
+    return NextResponse.json({ error: 'Invalid token' }, { status: 401 });
+  }
+}
+```
+
+### 9.8 Logging & Monitoring
+```typescript
+// Log all API requests for security audit
+import fs from 'fs';
+
+function logRequest(ip: string, method: string, path: string, status: number) {
+  const timestamp = new Date().toISOString();
+  const logEntry = `[${timestamp}] ${ip} ${method} ${path} - ${status}\n`;
+  fs.appendFileSync('./logs/api-access.log', logEntry);
+}
+```
+
+### 9.9 Security Headers
+```typescript
+// Add security headers to all responses
+export function middleware(req: NextRequest) {
+  const response = NextResponse.next();
+  
+  response.headers.set('X-Content-Type-Options', 'nosniff');
+  response.headers.set('X-Frame-Options', 'DENY');
+  response.headers.set('X-XSS-Protection', '1; mode=block');
+  response.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+  
+  return response;
+}
+```
+
+### 9.10 Security Checklist
+
+- [ ] All `.env` files are in `.gitignore`
+- [ ] API endpoints have rate limiting enabled
+- [ ] Input validation is implemented with Zod or similar
+- [ ] XSS protection is enabled (sanitization)
+- [ ] HTTPS/TLS is configured for all environments
+- [ ] CORS is restricted to trusted domains only
+- [ ] Database passwords are strong and rotated quarterly
+- [ ] API authentication (JWT) is implemented
+- [ ] Security headers are set in all responses
+- [ ] Logs are monitored for suspicious activity
+- [ ] Dependencies are updated monthly for security patches
+- [ ] Security audit is performed quarterly
+
+---
+
 ## 🛠️ TROUBLESHOOTING GUIDE
 
 | Symptom | Likely Cause | Solution |
@@ -287,6 +473,8 @@ API_KEY=your_secure_token_here
 | Network timeout errors | CRM server not running | Start Twenty CRM server on client machine |
 | JSON parsing errors | Invalid JSON format in request | Validate form data before submission |
 | CORS errors | Missing CORS headers | Add `Access-Control-Allow-Origin` header in server |
+| Rate limit exceeded (429) | Too many requests from same IP | Wait 1 minute before retrying |
+| Invalid input error (400) | Data doesn't match validation schema | Verify form input is correct |
 
 ---
 
